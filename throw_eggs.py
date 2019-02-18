@@ -2,6 +2,9 @@
 
 import functools
 import time
+import sys
+
+sys.setrecursionlimit(1500)
 
 
 @functools.lru_cache(maxsize=None)
@@ -27,6 +30,19 @@ def mk_table(floors, eggs):
     return table
 
 
+def max_height(n, m):
+    # max height to test with n eggs, m floors
+    # n, eggs indifferent
+    # m, floors
+    h, t = 0, 1
+    for i in range(1, n + 1):
+        t = t * (m - i + 1) // i
+        h += t
+    return h
+
+
+print(max_height(2, 14))
+
 t = time.time()
 # print('-' * 60)
 # for j, e in enumerate(mk_table(100, 10)):
@@ -38,5 +54,6 @@ print(time.time() - t)
 
 t = time.time()
 print(throw(100, 2))
+print(throw(105, 2))
 print(throw(100, 10))
 print(time.time() - t)
