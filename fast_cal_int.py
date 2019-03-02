@@ -38,9 +38,9 @@ class integer_parser:
     @legal_check
     @timing
     def is_prime(self, num=None):
-        assert(self.is_legal(num))
+        # assert(self.is_legal(num))
         return not(any(
-            num % e == 0 for e in range(1, num)))
+            num % e == 0 for e in range(2, num)))
 
     @auto_complete
     @legal_check
@@ -80,7 +80,9 @@ ip = integer_parser()
 
 new_session()
 n = 490000
-print(ip.get_phi(n))
+print('--:', ip.get_phi(n))
+n = 7
+print('--:', ip.get_phi(n))
 
 new_session()
 large_n = 10000
