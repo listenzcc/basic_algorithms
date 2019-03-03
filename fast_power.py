@@ -16,16 +16,9 @@ def fast_power(base, power, model):
     return res
 
 
-base = 3
-power = 3875633
+base = 32
+power = 3875633754736887654357
 model = 123456787
 t = time.time()
-r1 = fast_power(base, power, model)
+print(fast_power(base, power, model))
 print('elapsed:', time.time()-t)
-
-t = time.time()
-r2 = naive_power(base, power, model)
-print('elapsed:', time.time()-t)
-
-print(r1, r2)
-r1 == r2
